@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <title>Admin - Xucana Shop</title>
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand&display=swap" rel="stylesheet">
+    <link href="https://cdn.datatables.net/1.10.20/css/dataTables.bootstrap4.min.css" rel="stylesheet" crossorigin="anonymous" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/js/all.min.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</head>
+<!-- Phần body trang -->
+
+<body>
+    <!-- Phần bao quanh body -->
+    <div id="layoutSidenav_content">
+        <!-- Nút Create -->
+        <button class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+                    <i class="fas fa-plus mr-2"></i>Add New Room</button>
+        <!-- Tạo bảng -->
+        <table class="table">
+            <thead class="thead-light text-center">
+                <tr>
+                    <th>ID</th>
+                    <th>Name room</th>
+                    <th>Picture</th>
+                    <th>Price</th>
+                    <th>ShortDetail</th>
+                    <th>Kind</th>
+                    <th>Square</th>
+                    <th>Detail</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <!-- Chạy khi thêm sản phẩm -->
+            <tbody id="room_admin" class="text-center">
+                <script src="Admin-page.js"></script>
+            </tbody>
+        </table>
+    </div>
+    <!-- Bảng thông báo của Modal -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <!-- Mô hình Modal -->
+        <div class="modal-dialog">
+            <!-- Nội dung của Modal -->
+            <div class="modal-content">
+                <!-- Phần header của Modal -->
+                <div class="modal-header">
+                    <!-- Văn bản có từ "Thêm sản phẩm" ở trên phần header -->
+                    <h5 class="modal-title" id="exampleModalLabel"> Add New Room </h5>
+                    <!-- Nút Close lại bảng Modal -->
+                    <button type="button" class="close" data-dismiss='modal' aria-label="close"> 
+                                <span aria-hidden="true">&times; </span>
+                            </button>
+                </div>
+                <!-- Phần body của bảng Modal -->
+                <div class="modal-body">
+                    <!-- Tạo form -->
+                    <form action="" class="form-row">
+                        <div class="col-12 mt-3">
+                            <input type="text" class="form-control" id="name" placeholder="Name room">
+                        </div>
+                        <div class="col-12 mt-3">
+                            <input type="text" class="form-control" id="img" placeholder="Link Picture">
+                        </div>
+                        <div class="col-12 mt-3">
+                            <input type="text" class="form-control" id="price" placeholder="Price">
+                        </div>
+                        <div class="col-12 mt-3">
+                            <input type="text" class="form-control" id="sdetail" placeholder="Short Detail">
+                        </div>
+                        <div class="col-12 mt-3">
+                            <input type="text" class="form-control" id="kind" placeholder="Kind">
+                        </div>
+                        <div class="col-12 mt-3">
+                            <input type="text" class="form-control" id="square" placeholder="Square">
+                        </div>
+                        <div class="col-12 mt-3">
+                            <input type="text" class="form-control" id="detail" placeholder="Detail">
+                        </div>
+                    </form>
+                    <!-- Nút "Thêm để thêm sản phẩm" -->
+                    <button href="" class="btn btn-outline-danger mt-3" onclick="Room.addRoom()">Add</button>
+                </div>
+                <!-- Phần footet của Modal thêm sản phẩm -->
+                <div class="modal-footer">
+                    <!-- Nút Close bảng-->
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Exit</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Modal cập nhật sản phẩm -->
+    <div class="modal fade" id="updateRoom" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <!-- Mô hình Modal -->
+        <div class="modal-dialog">
+            <!-- Nội dung Modal -->
+            <div class="modal-content">
+                <!-- Phần đầu Modal -->
+                <div class="modal-header">
+                    <!-- Văn bản "Cập nhật sản phẩm" -->
+                    <h5 class="modal-title" id="exampleModalLabel"> Update room </h5>
+                    <!-- Nút Close Modal -->
+                    <button type="button" class="close" data-dismiss='modal' aria-label="close"> 
+                                <span aria-hidden="true">&times; </span>
+                            </button>
+                </div>
+                <div class="modal-body">
+                    <form action="" class="form-row">
+                        <div class="col-12 mt-3">
+                            <input type="text" class="form-control" id="idd" placeholder="ID ROOM">
+                        </div>
+                        <div class="col-12 mt-3">
+                            <input type="text" class="form-control" id="named" placeholder="Name">
+                        </div>
+                        <div class="col-12 mt-3">
+                            <input type="text" class="form-control" id="imgd" placeholder="Link Picture">
+                        </div>
+                        <div class="col-12 mt-3">
+                            <input type="text" class="form-control" id="priced" placeholder="Price">
+                        </div>
+                        <div class="col-12 mt-3">
+                            <input type="text" class="form-control" id="sdetaild" placeholder="Short Detail">
+                        </div>
+                        <div class="col-12 mt-3">
+                            <input type="text" class="form-control" id="kindd" placeholder="Kind">
+                        </div>
+                        <div class="col-12 mt-3">
+                            <input type="text" class="form-control" id="squared" placeholder="Square">
+                        </div>
+                        <div class="col-12 mt-3">
+                            <input type="text" class="form-control" id="detaild" placeholder="Detail">
+                        </div>
+                    </form>
+                    <div id="submitUpdate"></div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Exit</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
